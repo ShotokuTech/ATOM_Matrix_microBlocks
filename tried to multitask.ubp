@@ -1,0 +1,78 @@
+module main
+author unknown
+version 1 0 
+description ''
+
+script 767 54 {
+whenStarted
+forever {
+  waitMillis 4000
+  '[display:mbDisplay]' 8659208
+  waitMillis 1000
+  '[display:mbDisplay]' 0
+  waitMillis 1000
+}
+}
+
+script 429 55 {
+whenStarted
+forever {
+  waitMillis 2000
+  '[display:mbDisplay]' 4329604
+  waitMillis 3000
+  '[display:mbDisplay]' 0
+  waitMillis 1000
+}
+}
+
+script 102 56 {
+whenStarted
+forever {
+  waitMillis 0
+  '[display:mbDisplay]' 1082401
+  waitMillis 5000
+  '[display:mbDisplay]' 0
+  waitMillis 1000
+}
+}
+
+script 257 57 {
+whenStarted
+forever {
+  waitMillis 1000
+  '[display:mbDisplay]' 17318416
+  waitMillis 4000
+  '[display:mbDisplay]' 0
+  waitMillis 1000
+}
+}
+
+script 592 58 {
+whenStarted
+forever {
+  waitMillis 3000
+  '[display:mbDisplay]' 2164802
+  waitMillis 2000
+  '[display:mbDisplay]' 0
+  waitMillis 1000
+}
+}
+
+
+module 'LED Display' Output
+author MicroBlocks
+version 1 0 
+tags pixel matrix led tft 
+description 'Display primitives for the 5x5 LED display on the BBC micro:bit, Calliope mini and M5Atom Matrix. Boards with TFT displays (such as the Citilab ED1 or the M5Stack family) also support this primitives in a simulated "fat pixel" display.'
+
+	spec ' ' '[display:mbDisplay]' 'display _' 'microbitDisplay' 15237440
+	spec ' ' '[display:mbDisplayOff]' 'clear display'
+	spec ' ' '[display:mbPlot]' 'plot x _ y _' 'num num' 3 3
+	spec ' ' '[display:mbUnplot]' 'unplot x _ y _' 'num num' 3 3
+	spec ' ' 'displayCharacter' 'display character _' 'str' 'A'
+
+to displayCharacter s {
+  s = ('[data:join]' '' s)
+  '[display:mbDrawShape]' ('[display:mbShapeForLetter]' (at 1 s))
+}
+
